@@ -10,6 +10,7 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "framer-motion": "^11.1.9",
     "plasmo": "0.86.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
