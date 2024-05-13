@@ -16,29 +16,31 @@ export const getStyle = () => {
 }
 
 const variants = {
-  expanded: { height: "auto" },
-  collapsed: { height: 2.5 + "rem" }
+  expanded: { height: "180px" },
+  collapsed: { height: "2.5rem" }
 }
 
 const PlasmoOverlay = () => {
   const [hovered, setHovered] = useState(false)
-  const btnCss = "p-2 rounded-md hover:bg-blue-500 hover:text-white"
+  const btnCss =
+    "p-2 rounded-md hover:bg-blue-500 hover:text-white hover:shadow-md"
 
   return (
     <motion.div
       layout={true}
+      className={`z-50 flex fixed top-32 right-3 w-12 transition-all text-black shadow bg-gray-100`}
+      style={{
+        borderRadius: "8px",
+        overflow: "hidden"
+      }}
       initial="collapsed"
       animate={hovered ? "expanded" : "collapsed"}
       variants={variants}
-      transition={{ duration: 0.3, ease: "linear" }}
-      className={`z-50 flex fixed top-32 right-3 w-12 transition-all text-black shadow bg-gray-100`}
-      style={{
-        borderRadius: "8px"
-      }}
+      transition={{ duration: 0.3, ease: "ease-in-out" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}>
       {hovered ? (
-        <div className="flex flex-col justify-between items-center w-full h-full overflow-hidden p-2">
+        <div className="flex flex-col justify-between items-center w-full h-full p-2">
           <button className={btnCss}>
             <Icon />
           </button>
